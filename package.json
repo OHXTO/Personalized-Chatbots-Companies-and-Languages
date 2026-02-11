@@ -1,0 +1,18 @@
+{
+  "name": "ai-academy-template",
+  "version": "1.0.0",
+  "description": "Full-stack AI Academy template with React and Flask",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently "cd frontend && npm start" "cd server && flask run"",
+    "build": "cd frontend && npm run build",
+    "deploy-frontend": "cd frontend && REACT_APP_API_ENDPOINT=https://api.aiacademy.com npm run build && for file in ./build/static/js/*.js; do uglifyjs "$file" --compress --mangle -o "$file"; done && aws s3 sync build/ s3://ai-academy-frontend --acl public-read",
+    "deploy-docs": "cd docs && mkdocs build && aws s3 sync site/ s3://ai-academy-docs --acl public-read"
+  },
+  "keywords": ["react", "flask", "ai", "education"],
+  "author": "Anote AI",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

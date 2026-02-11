@@ -1,0 +1,50 @@
+site_name: AI Academy Documentation
+site_description: Comprehensive documentation for AI Academy platform
+site_author: Anote AI
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: amber
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+    - Configuration: getting-started/configuration.md
+  - Courses:
+    - Course Overview: courses/overview.md
+    - Introduction to AI: courses/intro-ai.md
+    - Machine Learning: courses/machine-learning.md
+    - Deep Learning: courses/deep-learning.md
+  - API Reference:
+    - Authentication: api/authentication.md
+    - Courses API: api/courses.md
+    - Students API: api/students.md
+    - Predictions API: api/predictions.md
+  - Deployment:
+    - Local Development: deployment/local.md
+    - AWS Deployment: deployment/aws.md
+    - Docker: deployment/docker.md
+  - Contributing: contributing.md
+
+plugins:
+  - search
+  - mkdocstrings
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true

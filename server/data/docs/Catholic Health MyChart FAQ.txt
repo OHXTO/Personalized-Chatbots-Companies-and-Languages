@@ -1,0 +1,22 @@
+About Catholic Health MyChart
+Catholic Health MyChart offers personalized and secure online access to your medical records. It enables you to manage and receive information about your health. With Catholic Health MyChart, you can: 
+
+Schedule medical appointments.
+View your health information, including medications, allergies, test results, and more.
+Request medication refills.
+Access resources for trusted health information.
+Message your care team.
+
+
+Is there a fee to use Catholic Health MyChart?
+No, Catholic Health MyChart is a free service for all patients.
+
+What do I need to use Catholic Health MyChart?
+You need access to a computer or mobile device connected to the Internet and an up-to-date browser (such as Edge, Chrome, Firefox, or Safari). You can also use the Catholic Health MyChart mobile app on a mobile device.
+
+How is Catholic Health MyChart secure?
+We take great care to ensure your health information is kept private and secure. Access to information is controlled through secure activation codes, personal usernames, and passwords. Each person controls their password, and the account must be accessed using that password. On mobile, the account may also be accessed using face ID or fingerprint login. Unlike conventional email, all Catholic Health MyChart messaging is done while you are securely logged in to our website or mobile app.
+
+You can ensure that your account stays secure even if someone else has your username or password by turning on two-step verification. When this feature is turned on, you must enter a code that is sent to you by email or text message to log in to Catholic Health MyChart, in addition to using your username and password.
+
+Check out our helpful video on two-step verification: https://www.youtube.com/watch?v=koPkT5piYUs
