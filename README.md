@@ -1,5 +1,5 @@
 ## Status
-🚧 Work in progress (WIP). A local demo is available.
+A local demo is available.
 
 
 # Personalized Company Chatbot (Catholic Health – Long Island)
@@ -61,10 +61,13 @@ Restart the backend after adding new files so the index is refreshed.
 - LLM: Ollama (local Mistral/Llama2)
 
 
-##Notes
+## Notes
+- This is a learning/demo project with assistance from AI coding
 
-- This is a learning/demo project. The chatbot is configured to answer using only the provided materials.
+## Reference
 
-- Current scope is intentionally small to keep the demo reliable and easy to evaluate.
+- Anote Template Repo: https://github.com/anote-ai/Template-Repo
+- Anote AI Academy Private Chatbot: https://docs.anote.ai/privategpt/privategpt.html
+
 
 
