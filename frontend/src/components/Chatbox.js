@@ -39,13 +39,17 @@ export default function Chatbox() {
 
   return (
     <div style={{ maxWidth: 900, margin: "40px auto", padding: 16 }}>
+      {/* Logo部分 */}
+      <div style={{ textAlign: "center", marginBottom: 20 }}>
+        <img src="/logo.png" alt="Logo" style={{ height: 80 }} />
+      </div>
+
       <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 12 }}>
         Catholic Health Q&amp;A (Demo)
       </h1>
 
       <p style={{ marginBottom: 16 }}>
-        Ask a question about the company. The backend answers using the provided
-        materials.
+        Ask a question about the company. The backend answers using the provided materials.
       </p>
 
       <div style={{ display: "flex", gap: 8 }}>

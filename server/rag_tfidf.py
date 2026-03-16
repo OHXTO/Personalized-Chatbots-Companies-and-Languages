@@ -22,7 +22,7 @@ def _clean_text(s: str) -> str:
     return s.strip()
 
 
-def _chunk_text(text: str, max_chars: int = 900, overlap: int = 120) -> List[str]:
+def _chunk_text(text: str, max_chars: int = 500, overlap: int = 80) -> List[str]:
     """
     Simple character-based chunker.
     Keeps overlap to preserve context across chunk boundaries.
@@ -81,7 +81,7 @@ class TfidfRAG:
 
         self.vectorizer = TfidfVectorizer(
             lowercase=True,
-            stop_words="english",   # 英文资料友好；中文也能跑但效果一般
+            stop_words="english", 
             ngram_range=(1, 2),
             max_features=50000,
         )
@@ -89,7 +89,7 @@ class TfidfRAG:
         self.matrix = self.vectorizer.fit_transform(corpus)
 
 
-    def query(self, question: str, top_k: int = 4, source_contains: str | None = None) -> List[Tuple[Chunk, float]]:
+    def query(self, question: str, top_k: int = 4, source_contains: str | None = None):
         if not self.vectorizer or self.matrix is None or not self.chunks:
             return []
 
@@ -97,7 +97,6 @@ class TfidfRAG:
         if not q:
             return []
 
-        # 可选：按文件名过滤
         idx_map = list(range(len(self.chunks)))
         if source_contains:
             s = source_contains.lower()
@@ -108,7 +107,27 @@ class TfidfRAG:
         q_vec = self.vectorizer.transform([q])
         sims = cosine_similarity(q_vec, self.matrix).flatten()
 
-        top_k = max(1, min(top_k, len(idx_map)))
-        idxs = sorted(idx_map, key=lambda i: sims[i], reverse=True)[:top_k]
-        return [(self.chunks[i], float(sims[i])) for i in idxs]
+        ranked = sorted(idx_map, key=lambda i: sims[i], reverse=True)
+
+        results = []
+        used = []
+        for i in ranked:
+            ch = self.chunks[i]
+
+            # 简单去重：同一 source 中 chunk_id 太近的不重复拿, simple deduplication
+            too_close = any(
+                u.source == ch.source and abs(u.chunk_id - ch.chunk_id) <= 1
+                for u in used
+            )
+            if too_close:
+                continue
+
+            results.append((ch, float(sims[i])))
+            used.append(ch)
+
+            if len(results) >= top_k:
+                break
+
+        return results
+
 
